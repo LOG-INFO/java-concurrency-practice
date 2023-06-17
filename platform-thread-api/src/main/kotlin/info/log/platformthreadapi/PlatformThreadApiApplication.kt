@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["info.log.platformthreadapi", "info.log.core"])
 class PlatformThreadApiApplication {
 }
 

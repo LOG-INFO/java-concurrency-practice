@@ -11,7 +11,7 @@ import org.springframework.core.task.support.TaskExecutorAdapter
 import java.util.concurrent.Executors
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["info.log.virtualthreadapi", "info.log.core"])
 class VirtualThreadApiApplication {
     @Bean(TaskExecutionAutoConfiguration.APPLICATION_TASK_EXECUTOR_BEAN_NAME)
     fun asyncTaskExecutor(): AsyncTaskExecutor {

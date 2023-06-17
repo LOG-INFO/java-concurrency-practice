@@ -1,0 +1,9 @@
+server:
+  port: 10001
+reactor:
+  netty:
+    pool:
+      maxConnections: 1000
+logging:
+  level:
+    root: INFO

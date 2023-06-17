@@ -28,14 +28,14 @@ data class Person(
 
         @Throws(InterruptedException::class)
         fun createPeopleListRandomly(): List<Person> {
-            Thread.sleep(200)
+            Thread.sleep(100)
             return IntStream.range(0, 50).boxed()
-                .map { e: Int? -> createRandomly() }
+                .map { createRandomly() }
                 .collect(Collectors.toList())
         }
 
         fun createPeopleFluxRandomly(): Flux<Person> {
-            return Mono.delay(Duration.of(200, ChronoUnit.MILLIS))
+            return Mono.delay(Duration.of(100, ChronoUnit.MILLIS))
                 .flatMapMany { Flux.range(0, 50) }
                 .map { createRandomly() }
         }

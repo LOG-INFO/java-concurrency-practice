@@ -1,0 +1,6 @@
+server:
+  port: 10000
+  tomcat:
+    max-connections: 8192
+    accept-count: 100
+    connection-timeout: 20000

@@ -47,12 +47,24 @@ allprojects {
             jvmTarget = "20"
         }
     }
+}
 
-    tasks.getByName<BootJar>("bootJar") {
-        enabled = false
-    }
+tasks.getByName<BootJar>("bootJar") {
+    enabled = false
+}
 
-    tasks.getByName<Jar>("jar") {
-        this.archiveFileName.set("app.jar")
+subprojects {
+    if (this.name != "core" && this.name != "domain") {
+        tasks.getByName<BootJar>("bootJar") {
+            enabled = true
+            this.archiveFileName.set("app.jar")
+        }
+        tasks.getByName<Jar>("jar") {
+            enabled = false
+        }
+    } else {
+        tasks.getByName<BootJar>("bootJar") {
+            enabled = false
+        }
     }
 }

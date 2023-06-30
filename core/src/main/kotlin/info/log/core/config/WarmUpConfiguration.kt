@@ -27,6 +27,6 @@ class WarmUpConfiguration(
 
     private fun warmUpRequest() {
         helloClient.hello()
-            .subscribe({ log.info("Warming Up") }, { log.error(it.message) })
+            .subscribe({ log.debug("Warming Up") }, { log.error(it.message) })
     }
 }

@@ -16,4 +16,5 @@ out/
 ### Mac OS ###
 .DS_Store
 
+jmeter/jmeter.jtl
 jmeter/jmeter.log

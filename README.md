@@ -10,7 +10,7 @@
 
 ```
 -server
--Xss200k
+-Xss500k
 -Xms1g
 -Xmx1g
 -XX:NativeMemoryTracking=detail
@@ -28,6 +28,19 @@
 
 ### Load Test
 
+#### Non-GUI mode
+
+```bash
+$ jmeter -n -t jmeter/JMeter_Config.jmx -l jmeter/jmeter.jtl
+```
+
+#### Options
+
+- `-n`: It specifies JMeter is to run in non-gui mode
+- `-t`: Name of JMX file that contains the Test Plan
+- `-l`: Name of JTL(JMeter text logs) file to log results
+- `-j`: Name of JMeter run log file
+
 #### CPU / Memory
 
 #### Performance
@@ -37,8 +50,15 @@
 ## 참고
 
 - https://youtrack.jetbrains.com/issue/KT-57669
-    - Kotlin 1.9.0-Beta 부터 JVM 20 지원
+  - Kotlin 1.9.0-Beta 부터 JVM 20 지원
+
+## JEP
+
+- [JEP 425: Virtual Threads (Preview) (JDK 19)](https://openjdk.org/jeps/425)
+- [JEP 436: Virtual Threads (Second Preview) (JDK 20)](https://openjdk.org/jeps/436)
+- [JEP 444: Virtual Threads (JDK 21)](https://openjdk.org/jeps/444)
 
 ## 관련 아티클
 
 - https://spring.io/blog/2022/10/11/embracing-virtual-threads
+- https://perfectacle.github.io/2022/12/29/look-over-java-virtual-threads/

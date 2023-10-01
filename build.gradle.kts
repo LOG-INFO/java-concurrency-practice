@@ -2,14 +2,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 object DependencyVersions {
-    const val KOTLIN_VERSION = "1.9.0-Beta"
+    const val KOTLIN_VERSION = "1.9.20-Beta2"
 }
 
 plugins {
     id("org.springframework.boot") version "3.1.0"
     id("io.spring.dependency-management") version "1.1.0"
-    kotlin("jvm") version "1.9.0-Beta"
-    kotlin("plugin.spring") version "1.9.0-Beta"
+    kotlin("jvm") version "1.9.20-Beta2"
+    kotlin("plugin.spring") version "1.9.20-Beta2"
 }
 
 allprojects {
@@ -38,13 +38,13 @@ allprojects {
     }
 
     kotlin {
-        jvmToolchain(20)
+        jvmToolchain(21)
 
     }
 
     tasks.withType<KotlinCompile>().all {
         kotlinOptions {
-            jvmTarget = "20"
+            jvmTarget = "21"
         }
     }
 }

@@ -1,8 +1,8 @@
 ## Version Compatibility - [Gradle - Java - Kotlin](https://docs.gradle.org/current/userguide/compatibility.html)
 
-- `Gradle 8.0.2`
-- `Kotlin 1.9.0-Beta`
-- `JVM 20`
+- `Gradle 8.2.1`
+- `Kotlin 1.9.20-Beta2`
+- `JVM 21`
 - `Spring Boot 3.1.0`
 - `Apache Tomcat 10.1.8` or `Netty 4.1.92.Final`
 
@@ -16,7 +16,6 @@
 -XX:NativeMemoryTracking=detail
 -XX:Tier3CompileThreshold=100
 -XX:Tier4CompileThreshold=100
---enable-preview
 ```
 
 ## 비교

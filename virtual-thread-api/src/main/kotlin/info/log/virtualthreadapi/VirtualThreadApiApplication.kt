@@ -1,10 +1,8 @@
 package info.log.virtualthreadapi
 
-import org.apache.coyote.ProtocolHandler
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
 import org.springframework.boot.runApplication
-import org.springframework.boot.web.embedded.tomcat.TomcatProtocolHandlerCustomizer
 import org.springframework.context.annotation.Bean
 import org.springframework.core.task.AsyncTaskExecutor
 import org.springframework.core.task.support.TaskExecutorAdapter
@@ -18,12 +16,12 @@ class VirtualThreadApiApplication {
         return TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor())
     }
 
-    @Bean
-    fun protocolHandlerVirtualThreadExecutorCustomizer(): TomcatProtocolHandlerCustomizer<*> {
-        return TomcatProtocolHandlerCustomizer { protocolHandler: ProtocolHandler ->
-            protocolHandler.executor = Executors.newVirtualThreadPerTaskExecutor()
-        }
-    }
+//    @Bean
+//    fun protocolHandlerVirtualThreadExecutorCustomizer(): TomcatProtocolHandlerCustomizer<*> {
+//        return TomcatProtocolHandlerCustomizer { protocolHandler: ProtocolHandler ->
+//            protocolHandler.executor = Executors.newVirtualThreadPerTaskExecutor()
+//        }
+//    }
 }
 
 fun main(args: Array<String>) {

@@ -1,7 +1,6 @@
 package info.log.core.config
 
 import info.log.core.client.HelloClient
-import kotlinx.coroutines.*
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.context.event.ApplicationReadyEvent
@@ -17,16 +16,19 @@ class WarmUpConfiguration(
 
     @EventListener(ApplicationReadyEvent::class)
     fun warmUpAfterStartup() {
-        helloClient.hello().block()
-
-        repeat(500) {
-            warmUpRequest()
-        }
-        print("Finished Warming Up")
-    }
-
-    private fun warmUpRequest() {
         helloClient.hello()
-            .subscribe({ log.debug("Warming Up") }, { log.error(it.message) })
+
+        val threads = List(50) {
+            Thread.ofVirtual().unstarted {
+                repeat(10) {
+                    helloClient.hello()
+                }
+            }
+        }
+
+        threads.forEach{it.start()}
+        threads.forEach{it.join()}
+
+        log.info("Finished Warming Up")
     }
 }

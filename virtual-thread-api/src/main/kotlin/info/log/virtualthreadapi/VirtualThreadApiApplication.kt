@@ -15,13 +15,6 @@ class VirtualThreadApiApplication {
     fun asyncTaskExecutor(): AsyncTaskExecutor {
         return TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor())
     }
-
-//    @Bean
-//    fun protocolHandlerVirtualThreadExecutorCustomizer(): TomcatProtocolHandlerCustomizer<*> {
-//        return TomcatProtocolHandlerCustomizer { protocolHandler: ProtocolHandler ->
-//            protocolHandler.executor = Executors.newVirtualThreadPerTaskExecutor()
-//        }
-//    }
 }
 
 fun main(args: Array<String>) {

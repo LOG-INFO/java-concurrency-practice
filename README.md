@@ -10,7 +10,7 @@
 
 ```
 -server
--Xss500k
+-Xss1m
 -Xms1g
 -Xmx1g
 -XX:NativeMemoryTracking=detail

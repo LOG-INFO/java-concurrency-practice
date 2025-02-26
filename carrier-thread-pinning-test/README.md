@@ -12,7 +12,8 @@ Ref) https://openjdk.org/jeps/491
 
 ## Result
 ### JDK 21 + Platform Thread
-synchronized tasks doesn't block other non-synchronized tasks. 
+synchronized tasks doesn't block other non-synchronized tasks.
+All non-sync logics complete in about 1 second.
 ```
 carrierThreadParallelism: 7
 [sync][Thread-0][9 ms] Start: 0
@@ -75,6 +76,7 @@ carrierThreadParallelism: 7
 
 ### JDK 21 + Virtual Thread
 synchronized tasks block other non-synchronized tasks: carrier-thread-pinning issue
+Some non-sync logic takes much longer than 1 second due to carrier-thread-pinning issue (8 seconds in the example below).
 ```
 carrierThreadParallelism: 7
 [sync][][11 ms] Start: 0
@@ -137,7 +139,7 @@ carrierThreadParallelism: 7
 
 ### JDK 24 + Virtual Thread
 synchronized tasks don't block other non-synchronized tasks.
-
+All non-sync logics complete in about 1 second.
 ```
 carrierThreadParallelism: 7
 [sync][][13 ms] Start: 0

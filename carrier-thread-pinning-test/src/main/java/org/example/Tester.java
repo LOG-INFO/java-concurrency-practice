@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
+import java.util.logging.Logger;
 
 public class Tester {
     private final ExecutorService executorService;
+    private static final Logger logger = Logger.getLogger(Tester.class.getName());
 
     public Tester(ExecutorService executorService) {
         this.executorService = executorService;
@@ -22,13 +24,13 @@ public class Tester {
     }
 
     private static void log(String type, int i, long startTimestamp) {
-        System.out.printf("[%s][%s][%d ms] Start: %d\n", type, Thread.currentThread().getName(), (System.currentTimeMillis() - startTimestamp),i);
+        logger.info(String.format("[%s][%s][%d ms] Start: %d\n", type, Thread.currentThread().getName(), (System.currentTimeMillis() - startTimestamp),i));
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.printf("[%s][%s][%d ms] End: %d\n", type, Thread.currentThread().getName(), (System.currentTimeMillis() - startTimestamp),i);
+        logger.info(String.format("[%s][%s][%d ms] End: %d\n", type, Thread.currentThread().getName(), (System.currentTimeMillis() - startTimestamp),i));
     }
 
     public void start() throws Exception {
